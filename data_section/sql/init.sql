@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ecom_db;
+
+USE ecom_db;
+
+CREATE TABLE
+    IF NOT EXISTS;
