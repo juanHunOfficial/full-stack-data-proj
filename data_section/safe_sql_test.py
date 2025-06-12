@@ -22,7 +22,7 @@ sql = SafeSQL(
 )
 
 # Run the database and table initialization
-sql.run_file('data_section/sql/init.sql')
+sql.run_file('sql/init.sql')
 
 # Query the sales_data table
 output = sql.run('SELECT * FROM sales_data')
