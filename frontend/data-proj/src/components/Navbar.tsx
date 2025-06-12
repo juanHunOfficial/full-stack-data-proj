@@ -1,87 +1,85 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Importing icons from lucide-react
+import { Link, NavLink } from 'react-router-dom';
+import type { NavLinkRenderProps } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // Import icons for mobile menu
 
-// Define the type for a single navigation item
+// Define types for props
 interface NavItem {
   name: string;
-  href: string;
+  path: string;
 }
 
-// Define the props for the Navbar component
 interface NavbarProps {
   brandName: string;
   navItems: NavItem[];
 }
 
-// Navbar component
 const Navbar: React.FC<NavbarProps> = ({ brandName, navItems }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Function to toggle the mobile menu state
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Brand Name */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-          <a href="/" className="navbar-brand">
-            {brandName}
-          </a>
-          {/* Mobile menu button */}
-          <button
-            onClick={toggleMenu}
-            className="mobile-menu-button"
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        {/* Brand name */}
+        <Link to="/" className="navbar-brand">
+          {brandName}
+        </Link>
 
-        {/* Navigation Links (Desktop) */}
+        {/* Mobile menu button */}
+        {/* The Menu and X icons from lucide-react are used here */}
+        <button className="mobile-menu-button" onClick={toggleMobileMenu} aria-label="Toggle navigation">
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Desktop navigation links */}
         <div className="nav-links-desktop">
-          {navItems.map((item: NavItem) => (
-            <a
+          {navItems.map((item) => (
+            <NavLink
               key={item.name}
-              href={item.href}
+              to={item.path}
+              className={({ isActive }: NavLinkRenderProps) =>
+                isActive ? 'nav-links-desktop-link active' : 'nav-links-desktop-link'
+              }
+              end={item.path === '/'}
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
-          <a
-            href="#dashboard"
-            className="dashboard-button"
-          >
+          {/* Example of a dashboard button */}
+          <Link to="/dashboard" className="dashboard-button">
             Dashboard
-          </a>
+          </Link>
         </div>
-
-        {/* Mobile Navigation Links (Conditional Rendering) */}
-        {isOpen && (
-          <div className="nav-links-mobile">
-            {navItems.map((item: NavItem) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)} // Close menu on item click
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="#dashboard"
-              onClick={() => setIsOpen(false)}
-              className="dashboard-button-mobile"
-            >
-              Dashboard
-            </a>
-          </div>
-        )}
       </div>
+
+      {/* Mobile navigation links (conditionally rendered) */}
+      {isMobileMenuOpen && (
+        <div className="nav-links-mobile">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }: NavLinkRenderProps) =>
+                isActive ? 'nav-links-mobile-link active' : 'nav-links-mobile-link'
+              }
+              onClick={toggleMobileMenu} // Close menu on link click
+              end={item.path === '/'}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+          {/* Example of a dashboard button for mobile */}
+          <Link to="/dashboard" className="dashboard-button-mobile" onClick={toggleMobileMenu}>
+            Dashboard
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
 
-export default Navbar; // Export the Navbar component
+export default Navbar;
