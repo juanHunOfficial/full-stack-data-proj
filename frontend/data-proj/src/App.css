@@ -1,88 +1,84 @@
-/* Global Styles */
+/* Global Styles (from previous responses, ensure these are present) */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines */
+  font-family: 'Inter', sans-serif;
 }
 
 .app-container {
   min-height: 100vh;
-  background-color: #f3f4f6; /* Equivalent to Tailwind's gray-100 */
+  background-color: #f3f4f6;
 }
 
-/* Main Content Styling */
+/* Main Content Styling (from previous responses, ensure these are present) */
 .main-content {
-  padding: 2rem; /* Equivalent to Tailwind's p-8 */
+  padding: 2rem;
+  padding-top: 5rem; /* Adjusted for fixed navbar */
 }
 
 .main-content h1 {
-  font-size: 2rem; /* Equivalent to Tailwind's text-3xl */
+  font-size: 2rem;
   font-weight: bold;
-  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
-  margin-bottom: 1rem; /* Equivalent to Tailwind's mb-4 */
+  color: #1f2937;
+  margin-bottom: 1rem;
 }
 
 .main-content p {
-  color: #4b5563; /* Equivalent to Tailwind's gray-600 */
+  color: #4b5563;
 }
 
 .main-content section {
-  padding: 3rem 1.5rem; /* Equivalent to Tailwind's py-12 px-6 */
-  background-color: #ffffff; /* Equivalent to Tailwind's bg-white */
-  border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
-  margin-top: 2rem; /* Equivalent to Tailwind's mt-8 */
+  padding: 3rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
 }
 
-.main-content section h2 {
-  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
-}
-
-.main-content section p {
-  margin-top: 0.5rem; /* Equivalent to Tailwind's mt-2 */
-}
-
-/* Navbar Styles */
+/* Navbar Styles (from previous responses, ensure these are present) */
 .navbar {
-  background: linear-gradient(to right, #1f2937, #111827); /* Equivalent to Tailwind's from-gray-800 to-gray-900 */
+  background: linear-gradient(to right, #1f2937, #111827);
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-container {
-  max-width: 1280px; /* Equivalent to Tailwind's container mx-auto */
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem; /* Equivalent to Tailwind's px-4 py-4 */
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar-brand {
-  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #93c5fd; /* Equivalent to Tailwind's indigo-300 */
+  color: #93c5fd;
   transition: color 0.3s ease;
-  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
-  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   text-decoration: none;
 }
 
 .navbar-brand:hover {
-  color: #a5b4fc; /* Equivalent to Tailwind's indigo-200 */
+  color: #a5b4fc;
 }
 
 .mobile-menu-button {
-  display: none; /* Hidden by default on desktop */
-  color: #9ca3af; /* Equivalent to Tailwind's gray-400 */
+  display: none;
+  color: #9ca3af;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
-  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   transition: color 0.3s ease;
 }
 
@@ -92,91 +88,88 @@ body {
   outline: none;
 }
 
-/* Desktop Navigation Links */
 .nav-links-desktop {
-  display: flex; /* Equivalent to Tailwind's hidden md:flex */
-  gap: 1.5rem; /* Equivalent to Tailwind's space-x-6 */
+  display: flex;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .nav-links-desktop a {
-  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
-  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+  color: #d1d5db;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1.125rem;
+  font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .nav-links-desktop a:hover {
   color: white;
-  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+  background-color: #374151;
   transform: scale(1.05);
 }
 
 .dashboard-button {
-  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  background-color: #4f46e5;
   color: white;
-  padding: 0.5rem 1.25rem; /* Equivalent to Tailwind's px-5 py-2 */
-  border-radius: 9999px; /* Equivalent to Tailwind's rounded-full */
-  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  margin-left: 1rem; /* Equivalent to Tailwind's ml-4 */
+  margin-left: 1rem;
 }
 
 .dashboard-button:hover {
-  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's hover:shadow-lg */
+  background-color: #4338ca;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
 }
 
-/* Mobile Navigation Links (Conditional) */
 .nav-links-mobile {
-  margin-top: 1rem; /* Equivalent to Tailwind's mt-4 */
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Equivalent to Tailwind's space-y-3 */
+  gap: 0.75rem;
 }
 
 .nav-links-mobile a {
   display: block;
-  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1rem; /* Equivalent to Tailwind's text-base */
-  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+  color: #d1d5db;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .nav-links-mobile a:hover {
   color: white;
-  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+  background-color: #374151;
 }
 
 .nav-links-mobile .dashboard-button-mobile {
-  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  background-color: #4f46e5;
   color: white;
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1rem; /* Equivalent to Tailwind's text-base */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  display: block; /* block */
+  display: block;
 }
 
 .nav-links-mobile .dashboard-button-mobile:hover {
-  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
+  background-color: #4338ca;
 }
 
-/* Responsive adjustments for mobile menu */
-@media (max-width: 767px) { /* Equivalent to Tailwind's md:hidden */
+@media (max-width: 767px) {
   .mobile-menu-button {
     display: block;
   }
@@ -193,4 +186,111 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+/* New Styles for HomePage sections */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.team-member-card {
+  background-color: #f9fafb; /* Equivalent to Tailwind's gray-50 */
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Equivalent to Tailwind's shadow-sm */
+}
+
+.team-member-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-role {
+  font-size: 1rem;
+  color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  margin-bottom: 0.75rem;
+}
+
+.team-member-description {
+  font-size: 0.875rem;
+  color: #4b5563; /* Equivalent to Tailwind's gray-600 */
+}
+
+/* New Styles for PersonaBio component */
+.persona-bio-card {
+  background-color: #ffffff; /* White background */
+  padding: 2rem;
+  border-radius: 0.75rem; /* Slightly more rounded corners */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05); /* Stronger shadow for emphasis */
+  margin-bottom: 2rem; /* Space between cards if multiple are used */
+  border: 1px solid #e5e7eb; /* Light border */
+}
+
+.persona-bio-name {
+  font-size: 1.75rem; /* Larger font for name */
+  font-weight: bold;
+  color: #1f2937; /* Dark gray */
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4f46e5; /* Accent line under name */
+  padding-bottom: 0.5rem;
+  display: inline-block; /* Makes border-bottom only as wide as content */
+}
+
+.persona-bio-text {
+  font-size: 1rem;
+  color: #4b5563; /* Gray text */
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.persona-bio-section {
+  margin-bottom: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #d1d5db; /* Dashed line separator */
+}
+
+.persona-bio-section:first-of-type {
+  border-top: none; /* No top border for the first section */
+  padding-top: 0;
+}
+
+.persona-bio-section-title {
+  font-size: 1.125rem; /* Medium font size */
+  font-weight: 600; /* Semi-bold */
+  color: #374151; /* Darker gray */
+  margin-bottom: 0.75rem;
+}
+
+.persona-bio-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.persona-bio-list li {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.2rem; /* Space for custom bullet */
+}
+
+.persona-bio-list li::before {
+  content: '•'; /* Custom bullet point */
+  color: #4f46e5; /* Indigo color for bullet */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
 }
