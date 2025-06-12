@@ -1,42 +1,196 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  min-height: 100vh;
+  background-color: #f3f4f6; /* Equivalent to Tailwind's gray-100 */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Main Content Styling */
+.main-content {
+  padding: 2rem; /* Equivalent to Tailwind's p-8 */
+}
+
+.main-content h1 {
+  font-size: 2rem; /* Equivalent to Tailwind's text-3xl */
+  font-weight: bold;
+  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
+  margin-bottom: 1rem; /* Equivalent to Tailwind's mb-4 */
+}
+
+.main-content p {
+  color: #4b5563; /* Equivalent to Tailwind's gray-600 */
+}
+
+.main-content section {
+  padding: 3rem 1.5rem; /* Equivalent to Tailwind's py-12 px-6 */
+  background-color: #ffffff; /* Equivalent to Tailwind's bg-white */
+  border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  margin-top: 2rem; /* Equivalent to Tailwind's mt-8 */
+}
+
+.main-content section h2 {
+  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
+  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
+  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
+}
+
+.main-content section p {
+  margin-top: 0.5rem; /* Equivalent to Tailwind's mt-2 */
+}
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(to right, #1f2937, #111827); /* Equivalent to Tailwind's from-gray-800 to-gray-900 */
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-lg */
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-container {
+  max-width: 1280px; /* Equivalent to Tailwind's container mx-auto */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem; /* Equivalent to Tailwind's px-4 py-4 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
+  font-weight: bold;
+  color: #93c5fd; /* Equivalent to Tailwind's indigo-300 */
+  transition: color 0.3s ease;
+  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
+  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #a5b4fc; /* Equivalent to Tailwind's indigo-200 */
+}
+
+.mobile-menu-button {
+  display: none; /* Hidden by default on desktop */
+  color: #9ca3af; /* Equivalent to Tailwind's gray-400 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
+  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-button:hover,
+.mobile-menu-button:focus {
+  color: white;
+  outline: none;
+}
+
+/* Desktop Navigation Links */
+.nav-links-desktop {
+  display: flex; /* Equivalent to Tailwind's hidden md:flex */
+  gap: 1.5rem; /* Equivalent to Tailwind's space-x-6 */
+  align-items: center;
+}
+
+.nav-links-desktop a {
+  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
+  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
+  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
+  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
+  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-links-desktop a:hover {
+  color: white;
+  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+  transform: scale(1.05);
+}
+
+.dashboard-button {
+  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  color: white;
+  padding: 0.5rem 1.25rem; /* Equivalent to Tailwind's px-5 py-2 */
+  border-radius: 9999px; /* Equivalent to Tailwind's rounded-full */
+  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
+  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-left: 1rem; /* Equivalent to Tailwind's ml-4 */
+}
+
+.dashboard-button:hover {
+  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's hover:shadow-lg */
+  transform: scale(1.05);
+}
+
+/* Mobile Navigation Links (Conditional) */
+.nav-links-mobile {
+  margin-top: 1rem; /* Equivalent to Tailwind's mt-4 */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Equivalent to Tailwind's space-y-3 */
+}
+
+.nav-links-mobile a {
+  display: block;
+  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
+  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
+  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
+  font-size: 1rem; /* Equivalent to Tailwind's text-base */
+  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-links-mobile a:hover {
+  color: white;
+  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+}
+
+.nav-links-mobile .dashboard-button-mobile {
+  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  color: white;
+  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
+  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
+  font-size: 1rem; /* Equivalent to Tailwind's text-base */
+  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block; /* block */
+}
+
+.nav-links-mobile .dashboard-button-mobile:hover {
+  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
+}
+
+/* Responsive adjustments for mobile menu */
+@media (max-width: 767px) { /* Equivalent to Tailwind's md:hidden */
+  .mobile-menu-button {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  .nav-links-desktop {
+    display: none;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .navbar-container > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
