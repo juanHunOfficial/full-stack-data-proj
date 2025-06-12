@@ -25,11 +25,6 @@ df = spark.read.csv("data_section/data/test-data.csv", header=True, inferSchema=
 # Adjust headers to match mysql columns
 df = df.toDF("invoice_no", "stock_code", "description", "quantity", "invoice_date", "unit_price", "customer_id", 'country')
 
-df = df.withColumn(
-    "invoice_date",
-    to_timestamp(lit("2000/02/02 10:10:10"))
-)
-
 # Show the dataframe to verify the transformations
 df.show(5)
 
