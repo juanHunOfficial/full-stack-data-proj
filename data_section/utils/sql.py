@@ -14,6 +14,10 @@ class SafeSQL:
     """
     This class just simplifies MySQL operations with error handling
     and configuration.
+
+    Methods:
+        run(): Runs a single query or multiline query with optional parameters or column names
+        run_file(): Runs a file byt filepath
     """
 
     def __init__(self, **kwargs) -> None:
