@@ -50,9 +50,9 @@ const Navbar: React.FC<NavbarProps> = ({ brandName, navItems }) => {
             </NavLink>
           ))}
           {/* Example of a dashboard button */}
-          <Link to="/dashboard" className="dashboard-button">
+          <a href="https://public.tableau.com/app/profile/juan.hun8224/viz/JuanSampleTest/Dashboard1" target="_blank" className="dashboard-button">
             Dashboard
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -73,9 +73,9 @@ const Navbar: React.FC<NavbarProps> = ({ brandName, navItems }) => {
             </NavLink>
           ))}
           {/* Example of a dashboard button for mobile */}
-          <Link to="/dashboard" className="dashboard-button-mobile" onClick={toggleMobileMenu}>
+          <a href="https://public.tableau.com/app/profile/juan.hun8224/viz/JuanSampleTest/Dashboard1" target="_blank" className="dashboard-button-mobile" onClick={toggleMobileMenu}>
             Dashboard
-          </Link>
+          </a>
         </div>
       )}
     </nav>
