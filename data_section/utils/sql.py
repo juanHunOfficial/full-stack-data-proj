@@ -77,7 +77,7 @@ class SafeSQL:
 
     # Writes a MySQL table to a csv file
     def to_csv(self, table: str, filepath: str) -> None:
-        
+
         stuff = self.run(f"SELECT * FROM {table};")
 
         with open(filepath, mode='w', newline='', encoding='utf-8') as f:
@@ -92,6 +92,15 @@ class SafeSQL:
         """
         Safe query function, takes an sql script as text or a filepath,
         executes the contents, and returns a list of the results.
+
+        Args:
+            sqlin (str): SQL query input
+            params (tuple, optional): Parameters inserted into parameterized queries (%s)
+            cols (tuple, optional): Column names inserted into format queries ({})
+
+        Returns:
+            list[RowType] (Single Query): A list of rows returned from an sql query
+            list[list[RowType]] (Multi-line Query): A list of query returns, each with a list of rows from that query
         """
 
         try:
