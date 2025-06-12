@@ -34,6 +34,17 @@ class SafeSQL:
         self.error_count = 0
         self.query_count = 0
 
+    # Executes a file given a filepath
+    def run_file(self, fp: str, *, params: tuple = None, inserts: tuple = None):
+        with open(fp, 'r') as f:
+            script = f.read()
+        if inserts:
+            script = script.format(*inserts)
+        if params:
+            return self.cursor.execute(script, params)
+        else:
+            return self.run(script)
+
     @staticmethod
     def prompt(text: str, options: tuple[str]) -> str:
 
@@ -104,10 +115,6 @@ class SafeSQL:
             while all(line.strip().startswith('--') for line in query_arr[-1].splitlines()):
                 query_arr.pop()
 
-            # ((attr, new_val, SSN), (SSN,))
-            print(f"Params: {params}")
-            print(f"Columns: {cols}")
-
             # Wrap the parameters
             if params and ((not isinstance(params[0], Iterable)) or isinstance(params[0], str)):
                 params = [params]
@@ -126,9 +133,6 @@ class SafeSQL:
             if not cols:
                 cols = [None] * len(query_arr)
 
-            print(f"Params: {params}")
-            print(f"Columns: {cols}")
-
             # Run each query and append the result to the outputs
             for query, params, cols in zip(query_arr, params, cols):
 
@@ -137,7 +141,6 @@ class SafeSQL:
 
                 # Execute query and increment query and row count
                 if params:
-                    print(f"Params: {params}")
                     self.cursor.execute(query, params)
                 else:
                     self.cursor.execute(query)

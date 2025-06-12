@@ -27,3 +27,11 @@ yarn-error.log*
 # Editor configs
 .vscode/
 .idea/
+
+# Python cache
+__pycache__/
+
+# Pyspark
+*.pyc
+spark
+artifacts
