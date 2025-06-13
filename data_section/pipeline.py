@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import datetime
 
 from pyspark import SparkFiles
@@ -10,6 +11,10 @@ from pyspark.sql.functions import col, lit, to_timestamp, try_to_timestamp
 from utils.logging import gotenv
 from utils.transform import pyformat
 
+os.environ["PYSPARK_PYTHON"] = "python"
+os.environ["PYSPARK_DRIVER_PYTHON"] = "python"
+
+print("Python version:", sys.version)
 
 # Load environment variables
 load_dotenv()
@@ -29,11 +34,17 @@ df = spark.read.csv(r"C:\Users\kenneth.copas\OneDrive - PeopleShores PBC\Desktop
 print("\nBefore:\n")
 df.show(5)
 
+
 # Create to_datetime function
-to_datetime = lambda t: datetime.strptime(t, '%m/%d/%Y %H:%M').strftime('%Y/%m/%d %H:%M:%S')
+def to_datetime_safe(t):
+    try:
+        return datetime.strptime(t, '%m/%d/%Y %H:%M').strftime('%Y/%m/%d %H:%M:%S')
+    except Exception:
+        return None  # or original value if you prefer
+
 
 # Use the to_datetime function to format the InvoiceDate column of the dataframe
-df = pyformat(df, 'InvoiceDate', to_datetime)
+df = pyformat(df, 'InvoiceDate', to_datetime_safe)
 
 # Rename dataframe columns to snake_case
 df = df.toDF('invoice_no', 'stock_code', 'description', 'quantity', 'invoice_date', 'unit_price', 'customer_id', 'country')

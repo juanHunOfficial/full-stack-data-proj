@@ -26,7 +26,7 @@ def pyformat(df: DataFrame, col: str, func: callable) -> callable:
         rd[col] = func(rd[col])
 
         # Return the updated row as a tuple
-        return tuple([rd[col] for col in col_names])
+        return tuple(rd[col] for col in col_names)
 
     # Convert to rdd, map the formatter to each row, convert to DF, return
     return df.rdd.map(formatter).toDF(col_names)
