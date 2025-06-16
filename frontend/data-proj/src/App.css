@@ -1,88 +1,98 @@
+/* src/App.css */
+
 /* Global Styles */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines */
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6; /* Light gray background */
+  color: #333;
+  line-height: 1.6;
 }
 
 .app-container {
   min-height: 100vh;
-  background-color: #f3f4f6; /* Equivalent to Tailwind's gray-100 */
+  padding-top: 4rem; /* Adjusted for fixed navbar height */
+  box-sizing: border-box;
 }
 
 /* Main Content Styling */
 .main-content {
-  padding: 2rem; /* Equivalent to Tailwind's p-8 */
+  max-width: 1200px; /* Increased max-width for content */
+  margin: 0 auto; /* Center content */
+  padding: 2rem;
 }
 
 .main-content h1 {
-  font-size: 2rem; /* Equivalent to Tailwind's text-3xl */
+  font-size: 2.5rem; /* Larger heading */
   font-weight: bold;
-  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
-  margin-bottom: 1rem; /* Equivalent to Tailwind's mb-4 */
+  color: #1f2937;
+  margin-bottom: 1rem;
+  text-align: center; /* Centered headings */
 }
 
 .main-content p {
-  color: #4b5563; /* Equivalent to Tailwind's gray-600 */
+  color: #4b5563;
+  text-align: center; /* Centered paragraphs */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-content section {
-  padding: 3rem 1.5rem; /* Equivalent to Tailwind's py-12 px-6 */
-  background-color: #ffffff; /* Equivalent to Tailwind's bg-white */
-  border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
-  margin-top: 2rem; /* Equivalent to Tailwind's mt-8 */
-}
-
-.main-content section h2 {
-  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  color: #1f2937; /* Equivalent to Tailwind's gray-800 */
-}
-
-.main-content section p {
-  margin-top: 0.5rem; /* Equivalent to Tailwind's mt-2 */
+  padding: 3rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem; /* Added margin-bottom for consistent spacing */
 }
 
 /* Navbar Styles */
 .navbar {
-  background: linear-gradient(to right, #1f2937, #111827); /* Equivalent to Tailwind's from-gray-800 to-gray-900 */
+  background: linear-gradient(to right, #1f2937, #111827); /* Dark gradient background */
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-container {
-  max-width: 1280px; /* Equivalent to Tailwind's container mx-auto */
+  max-width: 1200px; /* Max width for navbar content */
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem; /* Equivalent to Tailwind's px-4 py-4 */
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar-brand {
-  font-size: 1.5rem; /* Equivalent to Tailwind's text-2xl */
+  font-size: 1.8rem; /* Slightly larger brand name */
   font-weight: bold;
-  color: #93c5fd; /* Equivalent to Tailwind's indigo-300 */
+  color: #93c5fd; /* Light blue */
   transition: color 0.3s ease;
-  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
-  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   text-decoration: none;
 }
 
 .navbar-brand:hover {
-  color: #a5b4fc; /* Equivalent to Tailwind's indigo-200 */
+  color: #a5b4fc; /* Lighter blue on hover */
 }
 
 .mobile-menu-button {
   display: none; /* Hidden by default on desktop */
-  color: #9ca3af; /* Equivalent to Tailwind's gray-400 */
+  color: #9ca3af;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem; /* Equivalent to Tailwind's p-2 */
-  border-radius: 0.25rem; /* Equivalent to Tailwind's rounded-md */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   transition: color 0.3s ease;
 }
 
@@ -92,105 +102,342 @@ body {
   outline: none;
 }
 
-/* Desktop Navigation Links */
 .nav-links-desktop {
-  display: flex; /* Equivalent to Tailwind's hidden md:flex */
-  gap: 1.5rem; /* Equivalent to Tailwind's space-x-6 */
+  display: flex;
+  gap: 1.5rem;
   align-items: center;
 }
 
-.nav-links-desktop a {
-  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
-  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+.nav-links-desktop-link { /* Specific class for desktop links */
+  color: #d1d5db; /* Light gray text */
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1.125rem;
+  font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
-.nav-links-desktop a:hover {
+.nav-links-desktop-link:hover {
   color: white;
-  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+  background-color: #374151; /* Darker gray background on hover */
   transform: scale(1.05);
+}
+
+.nav-links-desktop-link.active { /* Active state for desktop links */
+  color: white;
+  background-color: #4f46e5; /* Indigo background for active */
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .dashboard-button {
-  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+  background-color: #4f46e5; /* Indigo */
   color: white;
-  padding: 0.5rem 1.25rem; /* Equivalent to Tailwind's px-5 py-2 */
-  border-radius: 9999px; /* Equivalent to Tailwind's rounded-full */
-  font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px; /* Pill shape */
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  margin-left: 1rem; /* Equivalent to Tailwind's ml-4 */
+  margin-left: 1rem;
+  display: inline-block; /* Essential for padding and sizing */
 }
 
 .dashboard-button:hover {
-  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's hover:shadow-lg */
+  background-color: #4338ca; /* Darker indigo on hover */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
 }
 
-/* Mobile Navigation Links (Conditional) */
 .nav-links-mobile {
-  margin-top: 1rem; /* Equivalent to Tailwind's mt-4 */
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Equivalent to Tailwind's space-y-3 */
+  gap: 0.75rem;
+  padding: 1rem; /* Padding for mobile menu */
+  background-color: #1f2937; /* Same as navbar for cohesion */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.nav-links-mobile a {
+.nav-links-mobile-link { /* Specific class for mobile links */
   display: block;
-  color: #d1d5db; /* Equivalent to Tailwind's gray-300 */
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1rem; /* Equivalent to Tailwind's text-base */
-  font-weight: 500; /* Equivalent to Tailwind's font-medium */
+  color: #d1d5db;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
-.nav-links-mobile a:hover {
+.nav-links-mobile-link:hover {
   color: white;
-  background-color: #374151; /* Equivalent to Tailwind's gray-700 */
+  background-color: #374151;
 }
 
-.nav-links-mobile .dashboard-button-mobile {
-  background-color: #4f46e5; /* Equivalent to Tailwind's indigo-600 */
+.nav-links-mobile-link.active { /* Active state for mobile links */
   color: white;
-  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's px-3 py-2 */
-  border-radius: 0.375rem; /* Equivalent to Tailwind's rounded-md */
-  font-size: 1rem; /* Equivalent to Tailwind's text-base */
-  font-weight: 600; /* Equivalent to Tailwind's font-semibold */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Equivalent to Tailwind's shadow-md */
+  background-color: #4f46e5;
+  border-radius: 0.375rem;
+}
+
+.dashboard-button-mobile {
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   text-decoration: none;
-  display: block; /* block */
+  display: block;
+  text-align: center; /* Center text in mobile button */
+  margin-top: 0.75rem;
 }
 
-.nav-links-mobile .dashboard-button-mobile:hover {
-  background-color: #4338ca; /* Equivalent to Tailwind's indigo-700 */
+.dashboard-button-mobile:hover {
+  background-color: #4338ca;
 }
 
-/* Responsive adjustments for mobile menu */
-@media (max-width: 767px) { /* Equivalent to Tailwind's md:hidden */
+@media (max-width: 767px) {
   .mobile-menu-button {
-    display: block;
+    display: block; /* Show mobile menu button */
   }
   .nav-links-desktop {
-    display: none;
+    display: none; /* Hide desktop links */
   }
   .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .navbar-container > div:first-child {
-    width: 100%;
-    display: flex;
+    flex-direction: row; /* Keep brand and button on one row */
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+/* HomePage Specific Styles */
+.home-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.home-subheading {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem; /* Added margin top */
+}
+
+.button-primary, .button-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block; /* Ensure it behaves like a block for padding */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.button-primary {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background-color: #ffffff;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.button-secondary:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center; /* Center the heading with icon */
+  text-align: center;
+}
+
+/* Explicitly target SVGs within .section-heading for robust vertical alignment */
+.section-heading svg {
+  vertical-align: middle;
+  /* If you ever want to control icon size via CSS instead of props, you could add: */
+  /* width: 1.5em; */
+  /* height: 1.5em; */
+}
+
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 1000px; /* Limit grid width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-member-card {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-align: center;
+  border: 1px solid #e5e7eb; /* Light border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.team-member-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-role {
+  font-size: 1rem;
+  color: #4f46e5;
+  margin-bottom: 0.75rem;
+}
+
+.team-member-description {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* PersonaBio Component Styles */
+.persona-bio-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 900px; /* Increased max-width */
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.persona-bio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1), 0 6px 8px -6px rgba(0, 0, 0, 0.1);
+}
+
+.persona-bio-name {
+  font-size: 2rem; /* Larger name */
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4f46e5;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  text-align: center;
+  width: auto; /* Allow content to dictate width */
+  margin-left: auto;
+  margin-right: auto;
+  display: block; /* To center the inline-block element */
+}
+
+.persona-bio-text {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.7; /* Increased line height for readability */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.persona-bio-section {
+  margin-top: 1.5rem; /* Changed margin-bottom to margin-top */
+  padding-top: 0.75rem;
+  border-top: 1px dashed #d1d5db;
+}
+
+.persona-bio-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.persona-bio-section-title {
+  font-size: 1.25rem; /* Larger title */
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb; /* Lighter border */
+  padding-bottom: 0.5rem;
+}
+
+.persona-bio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.persona-bio-list li {
+  font-size: 0.98rem; /* Slightly larger font */
+  color: #4b5563;
+  margin-bottom: 0.6rem; /* Slightly more space */
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.persona-bio-list li::before {
+  content: '•';
+  color: #4f46e5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  font-size: 1.2rem; /* Larger bullet */
+}
+
+/* Responsive Grid for Persona Bio Sections */
+.persona-bio-card > div { /* Target the grid container directly */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .persona-bio-card > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive Adjustments for Mobile Navbar */
+@media (max-width: 767px) {
+  .main-content {
+    padding-top: 7rem; /* More padding for fixed mobile navbar */
   }
 }
