@@ -1,16 +1,20 @@
 from pyspark.sql import Row, DataFrame
 
 
-def pyformat(df: DataFrame, col: str, func: callable) -> callable:
-    """
-    Takes a pyspark dataframe, column name, and function. Uses the df.rdd.map
-    method to apply the function to a specific column in the dataframe and
-    returns the updated dataframe.
+def pyformat(df: DataFrame, col: str, func: callable) -> DataFrame:
+    """Applies a transformer function to a specific column in a DataFrame
+
+    This function creates a formatter function that takes a row, applies
+    the callable passed, and returns the new row. This formatter function
+    is then passed to the spark.rdd.map function to be applied to all rows.
 
     Args:
         df (DataFrame): PySpark Dataframe
         col (str): Column name to be changed
         func (callable): Function to be applied to the column
+    
+    Returns:
+        DataFrame: The newly formatted DataFrame
     """
 
     # Retrieve the DataFrame column names

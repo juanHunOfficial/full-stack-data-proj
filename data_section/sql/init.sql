@@ -1,19 +1,8 @@
+DROP DATABASE ecom_db;
+
 CREATE DATABASE IF NOT EXISTS ecom_db;
 
 USE ecom_db;
-
--- Raw Data
-CREATE TABLE
-    IF NOT EXISTS raw_data (
-        invoice_no VARCHAR(20),
-        stock_code VARCHAR(20),
-        description TEXT,
-        quantity INT,
-        invoice_date DATETIME,
-        unit_price DECIMAL(10, 2),
-        customer_id INT,
-        country VARCHAR(100)
-    );
 
 -- Customers
 CREATE TABLE
@@ -26,8 +15,8 @@ CREATE TABLE
 CREATE TABLE
     IF NOT EXISTS invoices (
         invoice_no VARCHAR(20) PRIMARY KEY,
-        invoice_date DATETIME,
         customer_id INT,
+        invoice_date DATETIME,
         FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
     );
 
