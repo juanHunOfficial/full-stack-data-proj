@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import mysql.connector as dbconnect
@@ -9,7 +9,7 @@ import mysql.connector as dbconnect
 # Load environment variables from .env file
 # load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="dist", static_url_path='')
 
 # --- Configuration ---
 # Ensure you have mysql-connector-python installed: pip install mysql-connector-python
@@ -47,11 +47,17 @@ class EngineerSchema(ma.SQLAlchemyAutoSchema):
 engineer_schema = EngineerSchema() # For single engineer
 engineers_schema = EngineerSchema(many=True) # For a list of engineers
 
-# --- API Endpoints ---
+# --- React API Endpoints ---
 
-# @app.route('/')
-# def hello_world():
-#     return jsonify({"message": "Hello World!"})
+@app.route('/')
+def index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def static_files(path):
+    return send_from_directory(app.static_folder, path)
+
+# ---------------------------
 
 @app.route('/engineers', methods=['POST'])
 def add_engineer():
