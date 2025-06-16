@@ -1,8 +1,12 @@
 import os
+
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import mysql.connector as dbconnect
+
+from data_section.utils.logging import gotenv
 # from flask_cors import CORS
 # from dotenv import load_dotenv
 
@@ -11,11 +15,13 @@ import mysql.connector as dbconnect
 
 app = Flask(__name__, static_folder="dist", static_url_path='')
 
+load_dotenv()
+
 # --- Configuration ---
 # Ensure you have mysql-connector-python installed: pip install mysql-connector-python
 # Or if you meant PostgreSQL, change 'mysql+mysqlconnector' to 'postgresql+psycopg2'
 # and ensure you have psycopg2-binary installed: pip install psycopg2-binary
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'mysql+mysqlconnector://root:password@localhost/students_db')
+app.config['SQLALCHEMY_DATABASE_URI'] = gotenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # Suppress SQLAlchemy warning
 
 # Initialize extensions
@@ -171,4 +177,5 @@ if __name__ == '__main__':
         db.create_all()
         # You might also want to run db seeding here for quick testing
         # seed_db_command()
-    app.run(debug=True, port=5000) # Ensure Flask runs on a different port than React
+    
+    app.run() # Ensure Flask runs on a different port than React
