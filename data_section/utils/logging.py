@@ -1,6 +1,24 @@
 import inspect
 import os
+import time
 
+_prev_timestamp = None
+
+
+# Logs a message and prints the time elapsed since last time_log call
+def time_log(message: str):
+    global _prev_timestamp
+    print(message)
+
+    if _prev_timestamp:
+        time_elapsed = time.time() - _prev_timestamp
+        s = int(time_elapsed)
+        m = s // 60
+        ms = int((time_elapsed - s) * 1000)
+
+        print(f"Time Elapsed: {m}m {s}s {ms}ms\n")
+
+    _prev_timestamp = time.time()
 
 # Retrieves an environment variable, logs if it doesn't exist
 def gotenv(varname: str):
